@@ -1,11 +1,11 @@
-titre: "expo#01"
-intitule: "expo#01 - Fuites Industrielles"
-retour: "/realisations/"
+titre: 'expo#01'
+intitule: 'expo#01 - Fuites Industrielles'
+retour: '/realisations/'
 fond: ../../assets/galeries/expo01/fond.jpg
 photos:
   - image: ../../assets/galeries/expo01/01.jpg
     vignette: ../../assets/galeries/expo01/01tn.jpg
-    titre: "Lyon, juin 2008"
+    titre: 'Lyon, juin 2008'
     description: "Organisé peu avant la création de l'association Les Insisyphes, cet événement fut une première expérience d'exposition en cours, étalée sur deux jours."
   - image: ../../assets/galeries/expo01/02.jpg
     vignette: ../../assets/galeries/expo01/02tn.jpg

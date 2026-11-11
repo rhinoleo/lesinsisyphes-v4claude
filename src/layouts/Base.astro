@@ -35,8 +35,11 @@ const titreComplet = titre ? `Les Insisyphes - ${titre}` : 'Les Insisyphes';
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
-    <div class="max-w-cadre relative mx-auto mb-[200px] box-content px-3 pt-5 md:px-[27px]">
-      <a href="/" class="absolute top-5 left-[25px] z-0 md:left-[40px]">
+    <div class="max-w-cadre relative mx-auto mb-10 box-content px-3 pt-5 md:mb-[200px] md:px-[27px]">
+      <a
+        href="/"
+        class="relative z-0 ml-[13px] block h-[107px] w-fit overflow-hidden md:absolute md:top-5 md:left-[40px] md:ml-0 md:h-auto md:overflow-visible"
+      >
         <Image
           src={logo}
           alt="Les Insisyphes, des aires pour les arts…"

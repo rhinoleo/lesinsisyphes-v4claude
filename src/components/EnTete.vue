@@ -22,7 +22,7 @@ const lienMenu =
     <div
       v-show="aproposOuvert"
       id="apropos"
-      class="pr-[13px] pl-3 text-[0.85em] md:h-[116px] md:pl-[325px]"
+      class="px-3 pb-2 text-[0.85em] md:h-[116px] md:pr-[13px] md:pb-0 md:pl-[325px]"
     >
       <p class="pt-[13px]">
         Fondée par
@@ -74,7 +74,7 @@ const lienMenu =
       </p>
     </div>
 
-    <nav class="relative z-20 mt-[93px] pr-[33px]" aria-label="Menu principal">
+    <nav class="relative z-20 mt-2 md:mt-[93px] md:pr-[33px]" aria-label="Menu principal">
       <ul class="flex flex-wrap justify-end gap-x-[13.5px] gap-y-1">
         <li class="leading-none">
           <button
@@ -124,7 +124,7 @@ const lienMenu =
       <address
         v-show="contactOuvert"
         id="contact"
-        class="absolute top-[25px] right-[11px] max-w-full border-r border-[#999] bg-black px-[6px] pt-px pb-[3px] leading-[14px] text-[#999] not-italic"
+        class="absolute top-full right-0 mt-[11px] max-w-full border-r border-[#999] bg-black px-[6px] pt-px pb-[3px] leading-[14px] text-[#999] not-italic md:right-[11px]"
       >
         <a v-if="courriel" :href="`mailto:${courriel}`" :title="courriel" class="text-white"
           >e-mail</a

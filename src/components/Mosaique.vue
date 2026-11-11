@@ -80,10 +80,10 @@ function sortir(evenement: MouseEvent | FocusEvent) {
         />
         <span
           data-voile
-          class="absolute top-[-100%] left-0 block h-full w-full bg-[rgb(75_75_75/0.7)] transition-all duration-300 ease-[ease]"
+          class="tactile:top-auto! tactile:bottom-0 tactile:left-0! tactile:h-auto absolute top-[-100%] left-0 block h-full w-full bg-[rgb(75_75_75/0.7)] transition-all duration-300 ease-[ease]"
         >
           <span
-            class="mx-5 mt-10 mb-5 block border-b border-white/50 py-[10px] leading-[1.2] text-white/90 uppercase [text-shadow:1px_1px_1px_rgb(0_0_0/0.2)]"
+            class="tactile:m-0 tactile:border-0 tactile:px-2 tactile:py-1 tactile:text-[0.7rem] mx-5 mt-10 mb-5 block border-b border-white/50 py-[10px] leading-[1.2] text-white/90 uppercase [text-shadow:1px_1px_1px_rgb(0_0_0/0.2)]"
           >
             {{ vignette.titre }}<br />{{ vignette.annee }}
           </span>

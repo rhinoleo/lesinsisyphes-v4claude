@@ -1,6 +1,6 @@
-titre: "expo#04"
-intitule: "expo#04"
-retour: "/realisations/"
+titre: 'expo#04'
+intitule: 'expo#04'
+retour: '/realisations/'
 fond: ../../assets/galeries/expo04/fond.gif
 photos:
   - image: ../../assets/galeries/expo04/01.jpg

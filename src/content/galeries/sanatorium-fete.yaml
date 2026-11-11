@@ -1,17 +1,17 @@
-titre: "Le Sanatorium - pendant la fête"
+titre: 'Le Sanatorium - pendant la fête'
 intitule: "l'installation pendant la fête"
 fil:
-  - titre: "Réalisations"
-    href: "/realisations/"
-  - titre: "Le Sanatorium"
-    href: "/sanatorium/"
-retour: "/sanatorium/"
+  - titre: 'Réalisations'
+    href: '/realisations/'
+  - titre: 'Le Sanatorium'
+    href: '/sanatorium/'
+retour: '/sanatorium/'
 fond: ../../assets/galeries/sanatorium-fete/fond.jpg
 photos:
   - image: ../../assets/galeries/sanatorium-fete/01.jpg
     vignette: ../../assets/galeries/sanatorium-fete/01tn.jpg
-    titre: "Lyon, décembre 2010"
-    description: "Durant la fête, place Raspail."
+    titre: 'Lyon, décembre 2010'
+    description: 'Durant la fête, place Raspail.'
   - image: ../../assets/galeries/sanatorium-fete/02.jpg
     vignette: ../../assets/galeries/sanatorium-fete/02tn.jpg
   - image: ../../assets/galeries/sanatorium-fete/03.jpg

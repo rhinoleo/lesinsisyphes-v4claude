@@ -21,7 +21,8 @@ async function afficher() {
   if (!cadre) return;
   const largeur = document.documentElement.clientWidth;
   if (cadre.left < MARGE_ECRAN) decalage.value = MARGE_ECRAN - cadre.left;
-  else if (cadre.right > largeur - MARGE_ECRAN) decalage.value = largeur - MARGE_ECRAN - cadre.right;
+  else if (cadre.right > largeur - MARGE_ECRAN)
+    decalage.value = largeur - MARGE_ECRAN - cadre.right;
 }
 
 function ouvrir(immediat = false) {

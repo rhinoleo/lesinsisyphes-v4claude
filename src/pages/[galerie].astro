@@ -43,18 +43,15 @@ const photosPretes: Photo[] = await Promise.all(
 >
   <div class="bg-bottom bg-no-repeat" style={`background-image:url(${fondOptimise.src})`}>
     <div class="px-3 pt-[15px] pb-[10px] md:pr-0 md:pl-5">
-      <h1
-        class="font-titre mb-[30px] pb-[10px] text-[1.1em] leading-[1.5] font-normal tracking-[0.08em] text-[#ccc]"
-      >
-        {
-          fil.map((etape) => (
-            <>
-              <a href={etape.href}>{etape.titre}</a>
-              {' > '}
-            </>
-          ))
-        }
-        {intitule}<br />
+      <h1 class="font-titre mb-[30px] pb-[10px] text-[1.1em] leading-[1.5] font-normal tracking-[0.08em] text-[#ccc]">
+        {fil.map((etape) => (
+          <>
+            <a href={etape.href}>{etape.titre}</a>
+            {' > '}
+          </>
+        ))}
+        {intitule}
+        <br />
         <a href={retour}>&lt; retour</a>
       </h1>
       <Galerie client:load photos={photosPretes} />

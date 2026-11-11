@@ -104,7 +104,7 @@ const fleche =
             <path d="M22 9H2M9 2 2 9l7 7" fill="none" stroke="currentColor" stroke-width="1.5" />
           </svg>
         </button>
-        <ul class="flex w-[448px] max-w-full flex-wrap">
+        <ul class="grid grid-cols-4 md:flex md:w-[448px] md:flex-wrap">
           <li v-for="vignette in vignettesVisibles" :key="vignette.index" class="m-[2px]">
             <button
               type="button"

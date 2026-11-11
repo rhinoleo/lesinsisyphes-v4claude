@@ -63,8 +63,8 @@ const panneau = 'h-[469px] w-full shrink-0 snap-start';
 
   <div class="bg-cover bg-center" style={`background-image:url(${fondOptimise})`} data-visionneuse>
     <Slider client:load flecheGauche={fleches.gauche} flecheDroite={fleches.droite}>
-      <div data-panneau class={panneau}>
-        <p class="font-titre px-3 pt-[350px] text-[1.1em] leading-[1.5] tracking-[0.08em] text-[#eee] md:pr-[200px] md:pl-[45px]">
+      <div data-panneau class={`${panneau} flex flex-col justify-end`}>
+        <p class="font-titre px-3 pb-[35px] text-[1.1em] leading-[1.5] tracking-[0.08em] text-[#eee] md:pr-[200px] md:pl-[45px]">
           C'est au niveau du centre d'échanges, entre Carnot et Charlemagne. Depuis quelques jours
           ça sonne pas pareil. La lumière, aussi : on dirait qu'elle a changé. Ou alors c'est la
           couleur ? Et il y a tous ces signes sur les murs, le sol... Qu'est-ce qu'il se passe par
@@ -74,7 +74,7 @@ const panneau = 'h-[469px] w-full shrink-0 snap-start';
 
       {planches.map((planche) => (
         <div data-panneau class={panneau} style={`background-image:url(${planche.voile})`}>
-          <ul class="mx-auto grid w-[376px] max-w-full grid-cols-4 gap-x-10 gap-y-[45px] pt-[241px]">
+          <ul class="mx-auto grid w-fit grid-cols-4 gap-x-5 gap-y-[45px] pt-[241px] md:gap-x-10">
             {planche.photos.map((photo) => (
               <li class="hover:border-fluo focus-within:border-fluo border-2 border-[#333]">
                 <a

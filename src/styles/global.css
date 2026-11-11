@@ -16,7 +16,14 @@
 
   /* Largeur utile du cadre de page (814 px d'origine moins les 2 × 7 px d'ombre). */
   --container-cadre: 800px;
+
+  /* Seuil « desktop » : dès que le cadre de 800 px et ses marges tiennent dans la fenêtre.
+     En dessous (téléphones, tablettes en portrait), la mise en page devient fluide. */
+  --breakpoint-md: 54rem;
 }
+
+/* Écrans tactiles sans survol : variante « tactile: ». */
+@custom-variant tactile (@media (hover: none));
 
 @layer base {
   html {

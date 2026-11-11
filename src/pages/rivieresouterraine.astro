@@ -88,20 +88,18 @@ const vues = [
           permet de rejoindre le cours de Verdun Perrache depuis le premier niveau du centre
           d’échanges.
         </p>
-        <a href="http://goo.gl/maps/O2DEC" target="_blank" rel="noopener"
-          >localiser sur Google Maps</a
-        >
+        <a href="http://goo.gl/maps/O2DEC" target="_blank" rel="noopener">
+          localiser sur Google Maps
+        </a>
       </div>
     </div>
 
     <ul class="grid gap-5 px-3 sm:grid-cols-2 md:px-10">
-      {
-        vues.map((vue) => (
-          <li>
-            <Image src={vue.src} alt={`Vue d'artiste ${vue.legende}`} title={vue.legende} />
-          </li>
-        ))
-      }
+      {vues.map((vue) => (
+        <li>
+          <Image src={vue.src} alt={`Vue d'artiste ${vue.legende}`} title={vue.legende} />
+        </li>
+      ))}
     </ul>
   </div>
 </Base>

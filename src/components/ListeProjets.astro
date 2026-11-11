@@ -14,25 +14,19 @@ const projets = (await getCollection('projets', ({ data }) => data.categorie ===
 ---
 
 <ul class="flex flex-col gap-[5px]">
-  {
-    projets.map((projet) => (
-      <li>
-        <a
-          href={`/${projet.id}/`}
-          class="bg-carte flex flex-col text-[#ccc] hover:text-white hover:no-underline focus-visible:text-white sm:min-h-[130px] sm:flex-row"
-        >
-          <Image
-            src={projet.data.vignetteListe}
-            alt=""
-            class="h-auto w-full shrink-0 sm:w-[325px]"
-          />
-          <div class="p-3 sm:p-0 sm:pl-[10px]">
-            <h2 class="titre pt-[5px] pb-0">{projet.data.titreListe ?? projet.data.titre}</h2>
-            <p class="sous-titre mb-[10px]">{projet.data.contexte}</p>
-            <p class="whitespace-pre-line">{projet.data.resume}</p>
-          </div>
-        </a>
-      </li>
-    ))
-  }
+  {projets.map((projet) => (
+    <li>
+      <a
+        href={`/${projet.id}/`}
+        class="bg-carte flex flex-col text-[#ccc] hover:text-white hover:no-underline focus-visible:text-white sm:min-h-[130px] sm:flex-row"
+      >
+        <Image src={projet.data.vignetteListe} alt="" class="h-auto w-full shrink-0 sm:w-[325px]" />
+        <div class="p-3 sm:p-0 sm:pl-[10px]">
+          <h2 class="titre pt-[5px] pb-0">{projet.data.titreListe ?? projet.data.titre}</h2>
+          <p class="sous-titre mb-[10px]">{projet.data.contexte}</p>
+          <p class="whitespace-pre-line">{projet.data.resume}</p>
+        </div>
+      </a>
+    </li>
+  ))}
 </ul>
