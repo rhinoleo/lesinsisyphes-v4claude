@@ -1,0 +1,54 @@
+---
+// Gabarit commun à toutes les pages : logo, en-tête, cadre de page.
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/habillage/entete.png';
+import EnTete from '../components/EnTete.vue';
+
+interface Props {
+  /** Titre de la page, affiché après « Les Insisyphes - ». Vide pour l'accueil. */
+  titre?: string;
+  description?: string;
+  /** Habillage du cadre : blanc, jaune fluo (listes) ou noir (galeries). */
+  variante?: 'clair' | 'fluo' | 'noir';
+  /** Classes du cadre ; par défaut les marges intérieures d'origine. */
+  classe?: string;
+}
+
+const {
+  titre,
+  description = 'Les Insisyphes, des aires pour les arts : expositions éphémères et interventions artistiques dans l’espace public, à Lyon et ailleurs.',
+  variante = 'clair',
+  classe = 'pt-[38px] pr-[33px] pb-[53px]',
+} = Astro.props;
+
+const titreComplet = titre ? `Les Insisyphes - ${titre}` : 'Les Insisyphes';
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titreComplet}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <div class="max-w-cadre relative mx-auto mb-[200px] box-content px-3 pt-5 md:px-[27px]">
+      <a href="/" class="absolute top-5 left-[25px] z-0 md:left-[40px]">
+        <Image
+          src={logo}
+          alt="Les Insisyphes, des aires pour les arts…"
+          width={292}
+          height={225}
+          loading="eager"
+        />
+      </a>
+      <EnTete client:load />
+      <main class:list={['cadre', `cadre-${variante}`, classe]}>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
