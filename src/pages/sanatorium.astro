@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import VideoYoutube from '../components/VideoYoutube.astro';
+import photo from '../assets/projets/sanatorium/photo-page.jpg';
+import apercuVideo from '../assets/projets/sanatorium/video.jpg';
+---
+
+<Base
+  titre="Le Sanatorium"
+  description="Le Sanatorium, installation des Insisyphes pour la Fête des Lumières (Lyon, 2010) : une enfilade de cinq espaces diffusant chacun une lumière différente."
+  classe="px-3 pt-[38px] pb-[38px] md:pr-0 md:pl-[38px]"
+>
+  <div class="flow-root">
+    <Image
+      src={photo}
+      alt="Le Sanatorium de nuit, place Raspail : un long volume blanc dont l'entrée laisse filtrer la lumière"
+      class="mb-3 md:float-right md:mb-0 md:ml-[15px]"
+    />
+    <h1 class="titre">le sanatorium</h1>
+    <h2 class="sous-titre">Fête des Lumières | Lyon | 2010</h2>
+    <p class="md:pr-10">
+      Le Sanatorium se présente comme une enfilade de cinq espaces diffusant chacun une lumière de
+      type différent (sodium, led, halogène, lumière noire, iodure métallique) à forte puissance. Le
+      type de lumière utilisé et la consommation électrique sont affichés dans chaque vestibule afin
+      d’établir un rapport direct entre l’intensité ressentie et la quantité d’électricité requise.
+    </p>
+    <p class="md:pr-10">
+      Si le titre «Sanatorium» sous-entend un bien-être et un soin, par la lumière forte en
+      l’occurrence, l’esthétique choisie évoque plutôt une chambre de confinement pour zone de
+      décontamination dans lequel la lumière forte serait un traitement de choc. L’ambiguïté se
+      poursuit à l’intérieur entre la musique invitant à la relaxation et les prescriptions
+      autoritaires flirtant avec l'absurde («tâchez de vous tenir bien droit», «soyez vous-même»
+      ...) inscrites en caractères industriels sur les parois blanches. Le Sanatorium s’anime au
+      passage des visiteurs, laissant s’échapper de puissants rayons lumineux quand ils cheminent
+      d’un «vestibule» à l’autre, en franchissant les rideaux : en un éclair, les patients du
+      Sanatorium sont visibles de l’extérieur et éveillent la curiosité des spectateurs alentours.
+    </p>
+  </div>
+
+  <div class="flow-root">
+    <VideoYoutube
+      id="5-6-OuT10MI"
+      titre="le sanatorium.mov"
+      apercu={apercuVideo}
+      largeur={420}
+      hauteur={315}
+      class="mb-3 md:float-right md:mr-10 md:mb-0 md:ml-[15px]"
+    />
+    <p>
+      Grâce au plancher continu, revêtu d’un tapis pastillé gris clair, le visiteur a la sensation
+      d’évoluer dans un espace homogène, ponctué par des rideaux de lanières en caoutchouc blanc
+      alimentaire. Les surfaces sont blanches, synthétiques, lisses et aseptisées. Une musique
+      d’ambiance légère et rassurante affleure...
+    </p>
+    <p class="font-bold">
+      Avec le partenariat d'HTE Distribution (mise à disposition des lampes) et la participation de
+      Fabrice Gendron (conception de la musique d'ambiance).
+    </p>
+    <div class="pt-10 pb-5 font-bold">
+      <h2>Galeries photos</h2>
+      <p><a href="/sanatorium-montage/">&gt; le montage et les préparatifs</a></p>
+      <p><a href="/sanatorium-fete/">&gt; l'installation pendant la fête</a></p>
+    </div>
+  </div>
+</Base>

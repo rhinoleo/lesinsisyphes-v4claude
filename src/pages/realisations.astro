@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import ListeProjets from '../components/ListeProjets.astro';
+---
+
+<Base
+  titre="Réalisations"
+  description="Les réalisations des Insisyphes : expositions en cours d'immeubles et installations dans l'espace public, de 2008 à 2011."
+  variante="fluo"
+  classe="pt-[38px] pb-[38px]"
+>
+  <h1 class="sr-only">Réalisations</h1>
+  <ListeProjets categorie="realisation" />
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import ListeProjets from '../components/ListeProjets.astro';
+---
+
+<Base
+  titre="Propositions"
+  description="Les propositions des Insisyphes : projets d'installations imaginés pour l'espace public et restés à l'état de projet."
+  variante="fluo"
+  classe="pt-[38px] pb-[38px]"
+>
+  <h1 class="sr-only">Propositions</h1>
+  <ListeProjets categorie="proposition" />
+</Base>

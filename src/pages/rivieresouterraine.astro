@@ -1,0 +1,107 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import vueGlobale from '../assets/projets/rivieresouterraine/vueglobale.jpg';
+import localisation from '../assets/projets/rivieresouterraine/localisation.jpg';
+import fond from '../assets/projets/rivieresouterraine/fond.gif';
+import plan from '../assets/projets/rivieresouterraine/plan.gif';
+import img01 from '../assets/projets/rivieresouterraine/img01.jpg';
+import img02 from '../assets/projets/rivieresouterraine/img02.jpg';
+import img04 from '../assets/projets/rivieresouterraine/img04.jpg';
+import img05 from '../assets/projets/rivieresouterraine/img05.jpg';
+
+const fondOptimise = await getImage({ src: fond });
+
+const vues = [
+  { src: img01, legende: 'en arrivant de la place Carnot ou de la station de tramway' },
+  { src: img02, legende: 'en arrivant du cours de Verdun Perrache' },
+  { src: img04, legende: 'fin du tour de rampe' },
+  { src: img05, legende: 'depuis le premier niveau du centre d’échanges' },
+];
+---
+
+<Base
+  titre="La Rivière souterraine"
+  description="La Rivière souterraine, proposition des Insisyphes pour la Fête des Lumières (Lyon, 2011) : des centaines de bandes de marquage routier dans une rampe du Centre d'échanges de Perrache."
+  classe="pt-[38px]"
+>
+  <div class="px-3 pb-px md:pr-0 md:pl-[38px]">
+    <h1 class="titre">La Rivière souterraine</h1>
+    <h2 class="sous-titre">proposition pour la Fête des Lumières | Lyon | 2011</h2>
+  </div>
+
+  <Image
+    src={vueGlobale}
+    alt="Vue d'artiste de la rampe circulaire baignée de lumière jaune, le sol couvert de bandes de marquage"
+    class="w-full"
+  />
+
+  <div class="flex flex-col gap-[25px] px-3 pt-[30px] md:flex-row md:pr-[39px] md:pl-[38px]">
+    <div class="md:flex-1">
+      <h2>
+        Nichée au cœur du Centre d’échanges de Perrache, une rivière souterraine a fait son
+        apparition.
+      </h2>
+      <p>
+        Cette résurgence inattendue est composée de centaines de bandes de marquage routier
+        rétro-réfléchissantes. Issues du vocabulaire routier, ces bandes s’émancipent de leur
+        fonction première. Elles prennent la tangente pour devenir les motifs d’une composition que
+        le public est invité à parcourir.
+      </p>
+      <p>
+        En remontant le cours de la rivière, les visiteurs baignent dans une lumière jaune, révélant
+        un espace déroutant qui tend à l’abstraction. Une sensation de mouvement émerge, renforcée
+        par la géométrie singulière du lieu, qui revisite malgré lui la fonction oblique chère à
+        Claude Parent.
+      </p>
+      <h2 class="pt-[10px]">Proposer un autre regard sur le Centre d’échanges.</h2>
+      <p>
+        Il existe une filiation méconnue entre le Centre Beaubourg et ce centre d’échanges à
+        l’architecture brutaliste. Jean Prouvé, qui travailla avec René Gagès à la conception des
+        façades, fut aussi le président du jury du concours du Centre Beaubourg. Par ailleurs,
+        l’E.L.A.C., ancêtre de l’Institut d’Art Contemporain à Villeurbanne, accueillit des
+        expositions du centre parisien. Au-delà de sa simple utilité fonctionnelle, le Centre
+        d’échanges de Perrache recèle des espaces riches d’un potentiel poétique encore à explorer.
+      </p>
+    </div>
+    <Image
+      src={localisation}
+      alt="Vue aérienne situant la rampe entre la place Carnot, le cours de Verdun Perrache et la gare de Perrache"
+      class="shrink-0 self-start md:mt-[65px]"
+    />
+  </div>
+
+  <div
+    class="bg-no-repeat pb-[41px] md:min-h-[850px]"
+    style={`background-image:url(${fondOptimise.src})`}
+  >
+    <div class="flex flex-col-reverse gap-5 px-3 md:flex-row md:justify-between md:px-0">
+      <Image
+        src={plan}
+        alt="Plan de la rampe circulaire couverte de bandes jaunes"
+        class="mb-[30px] md:ml-[100px]"
+      />
+      <div class="text-[0.8em] md:mr-10 md:w-[270px]">
+        <p class="pt-[5px]">
+          Notre proposition prend place sur l’une des quatre rampes d’accès aux parkings du Centre
+          d’échanges de Perrache, plus précisément dans la partie basse de la rampe sud-est, qui
+          permet de rejoindre le cours de Verdun Perrache depuis le premier niveau du centre
+          d’échanges.
+        </p>
+        <a href="http://goo.gl/maps/O2DEC" target="_blank" rel="noopener"
+          >localiser sur Google Maps</a
+        >
+      </div>
+    </div>
+
+    <ul class="grid gap-5 px-3 sm:grid-cols-2 md:px-10">
+      {
+        vues.map((vue) => (
+          <li>
+            <Image src={vue.src} alt={`Vue d'artiste ${vue.legende}`} title={vue.legende} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import losserand from '../assets/projets/gyre/losserand.jpg';
+import ferdinandBrunot from '../assets/projets/gyre/ferdinandbrunot.jpg';
+
+const legende = 'absolute top-[5px] right-[5px] leading-none font-bold text-white';
+---
+
+<Base
+  titre="La Gyre"
+  description="La Gyre, proposition des Insisyphes pour Les Rencontres du Land Art et de la Ville (Paris XIV, 2013) : une dérive du 7e continent de plastique."
+  classe="px-3 pt-[38px] pb-[38px] md:pr-0 md:pl-[38px]"
+>
+  <h1 class="titre">la gyre</h1>
+  <h2 class="sous-titre">
+    proposition pour Les Rencontres du Land Art et de la Ville | Paris XIV | 2013
+  </h2>
+
+  <figure class="relative mb-[15px] w-fit">
+    <Image src={losserand} alt="Vue d'artiste de la gyre suspendue entre les arbres de la place Losserand" />
+    <figcaption class={legende}>place Losserand</figcaption>
+  </figure>
+
+  <p class="md:pr-10">
+    Une définition que nous pourrions retenir du Land Art serait l’organisation en formes
+    harmonieuses, en géométries ou camaïeux, des agencements aléatoires de matériaux au sein même de
+    leur milieu. Le contraste obtenu entre formes naturelles et formes rationnelles crée l’image
+    artistique. Ainsi, on peut penser à Andy Goldworthy pour ses jeux de couleurs subtils avec des
+    feuilles ou les geométries monumentales de Michael Heizer. Historiquement en réaction à la
+    «white cube» et aux institutions, le Land Art de Walter de Maria et ses comparses a privilégié
+    les milieux naturels et leurs éléments, sans motivations particulièrement écologiques. Avec la
+    croissance exponentielle de la ville, et son cortège d’objets consommables, jetables, les
+    matériaux changent de nature et les enjeux du Land Art avec eux. En effet, aux fils des années,
+    ce sont des millions de tonnes d’objets plastiques non dégradables qui se trouvent emportés par
+    les flux naturels. Ironie du constat, c’est la nature qui donne maintenant forme à nos
+    matériaux, notamment dans la gyre océanique du Pacifique nord. Le «7e continent», composé de km³
+    de nos déchets plastiques ectoplasmiques et mortifères, tourne sans fin entre la Chine et les
+    Etat-unis.
+  </p>
+  <p class="md:pr-10">
+    Afin d’évoquer le problème de ce continent de plastique et de croiser les notions de Land Art,
+    ville et écologie, nous proposions une forme, une gyre spiralée, spacieuse et élégante, flottant
+    au-dessus du{' '}
+    <a href="http://goo.gl/maps/FpiKD" target="_blank" rel="noopener">square Ferdinand Brunot</a>
+    {' '}ou entre les arbres de la{' '}
+    <a href="http://goo.gl/maps/tcr8x" target="_blank" rel="noopener">place Raymond Losserand</a>.
+  </p>
+
+  <figure class="relative mt-[5px] w-fit">
+    <Image
+      src={ferdinandBrunot}
+      alt="Vue d'artiste de la gyre flottant au-dessus du square Ferdinand Brunot"
+    />
+    <figcaption class={legende}>square Ferdinand Brunot</figcaption>
+  </figure>
+</Base>

@@ -1,0 +1,61 @@
+---
+// Vidéo YouTube « à la demande » : seule une image d'aperçu locale est affichée ;
+// le lecteur (youtube-nocookie.com) n'est chargé qu'au clic. Aucun appel à YouTube avant.
+import { Image } from 'astro:assets';
+
+interface Props {
+  /** Identifiant de la vidéo (la partie après « v= » dans son adresse). */
+  id: string;
+  titre: string;
+  apercu: ImageMetadata;
+  largeur: number;
+  hauteur: number;
+  class?: string;
+}
+
+const { id, titre, apercu, largeur, hauteur, class: classe } = Astro.props;
+---
+
+<video-youtube
+  data-id={id}
+  data-titre={titre}
+  class:list={['relative block max-w-full bg-black', classe]}
+  style={`width:${largeur}px; aspect-ratio:${largeur}/${hauteur}`}
+>
+  <button
+    type="button"
+    class="group relative block h-full w-full cursor-pointer"
+    aria-label={`Lire la vidéo : ${titre}`}
+  >
+    <Image
+      src={apercu}
+      alt=""
+      width={largeur}
+      height={hauteur}
+      class="h-full w-full object-cover"
+    />
+    <span
+      class="absolute top-1/2 left-1/2 flex h-12 w-[68px] -translate-1/2 items-center justify-center rounded-xl bg-black/70 group-hover:bg-[#f00]"
+      aria-hidden="true"
+    >
+      <span class="ml-1 border-y-[10px] border-l-[18px] border-y-transparent border-l-white"></span>
+    </span>
+  </button>
+</video-youtube>
+
+<script>
+  class VideoYoutube extends HTMLElement {
+    connectedCallback() {
+      this.querySelector('button')?.addEventListener('click', () => {
+        const lecteur = document.createElement('iframe');
+        lecteur.src = `https://www.youtube-nocookie.com/embed/${this.dataset.id}?autoplay=1`;
+        lecteur.title = this.dataset.titre ?? '';
+        lecteur.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        lecteur.allowFullscreen = true;
+        lecteur.className = 'absolute inset-0 h-full w-full border-0';
+        this.replaceChildren(lecteur);
+      });
+    }
+  }
+  customElements.define('video-youtube', VideoYoutube);
+</script>

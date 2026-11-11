@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import coupe from '../assets/projets/mirage/mirage-max.gif';
+import montageTunnel from '../assets/projets/mirage/mirage-montage2.jpg';
+import montageRue from '../assets/projets/mirage/mirage-montage1.jpg';
+import coupeZoom from '../assets/projets/mirage/mirage-zoom.gif';
+---
+
+<Base
+  titre="un mirage"
+  description="Un mirage, proposition des Insisyphes pour Nuit Blanche (Paris XVIII, 2012) : une brèche temporelle s'ouvre dans un tunnel de la Petite Ceinture."
+  classe="pt-[38px]"
+>
+  <div class="px-3 pb-px md:pr-0 md:pl-[38px]">
+    <h1 class="titre">un mirage</h1>
+    <h2 class="sous-titre">proposition pour Nuit Blanche | Paris XVIII | 2012</h2>
+  </div>
+
+  <Image src={coupe} alt="Coupe longitudinale de la tranchée ferroviaire" class="w-full" />
+
+  <div
+    class="flex flex-col gap-[25px] px-3 pt-10 md:h-[440px] md:flex-row md:pr-[99px] md:pl-[98px]"
+  >
+    <div class="md:flex-1">
+      <p class="pt-5">
+        L’actualité porte sur des études de réhabilitation des espaces de la Petite Ceinture, depuis
+        longtemps désaffectés. Ayant perdu leur fonction, ces lieux deviennent propices à toutes
+        projections. Voici la notre : une brèche temporelle s’est ouverte dans le tunnel. De l’autre
+        côté, le monde est désertique et sauvage. A travers le tunnel afflue le sable rouge et une
+        bête gigantesque s’est déjà frayée un passage jusqu’à nous...
+      </p>
+      <p class="pt-5 md:pt-[140px]">
+        L’installation prend place dans la tranchée RFF de 130 mètres de long qui sépare la rue
+        Leibniz et la rue Belliard. Une dune est montée à l’entrée du tunnel sous l’ancienne gare de
+        l’avenue de Saint-Ouen.
+      </p>
+    </div>
+    <Image
+      src={montageTunnel}
+      alt="Photomontage : du sable rouge et une bête tachetée sortent du tunnel sous l'ancienne gare"
+      class="shrink-0 self-start"
+    />
+  </div>
+
+  <div class="px-3 pt-10 md:pr-0 md:pl-[38px]">
+    <Image
+      src={montageRue}
+      alt="Photomontage : la bête gigantesque vue depuis la rue, derrière les grilles de la tranchée"
+    />
+  </div>
+
+  <Image
+    src={coupeZoom}
+    alt="Détail de la coupe : la bête franchit la grille de la tranchée"
+    class="mt-[100px] w-full"
+  />
+</Base>

@@ -1,17 +1,27 @@
 ---
-// PAGE TEMPORAIRE (phase 1) : sert à vérifier le socle. Remplacée par la mosaïque en phase 2.
+// Accueil (« actualité ») : mosaïque de tous les projets, du plus récent au plus ancien.
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import Mosaique, { type Vignette } from '../components/Mosaique.vue';
+
+const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+
+const vignettes: Vignette[] = await Promise.all(
+  projets.map(async (projet) => {
+    const image = await getImage({ src: projet.data.vignetteAccueil });
+    return {
+      href: `/${projet.id}/`,
+      titre: projet.data.titre,
+      annee: projet.data.annee,
+      src: image.src,
+      largeur: projet.data.vignetteAccueil.width,
+      hauteur: projet.data.vignetteAccueil.height,
+    };
+  }),
+);
 ---
 
-<Base classe="pt-[38px] pr-[6px] pb-[38px] pl-[38px]">
-  <h1 class="titre">la gyre</h1>
-  <h2 class="sous-titre">
-    proposition pour Les Rencontres du Land Art et de la Ville | Paris XIV | 2013
-  </h2>
-  <p class="pr-10">
-    Une définition que nous pourrions retenir du Land Art serait l’organisation en formes
-    harmonieuses, en géométries ou camaïeux, des agencements aléatoires de matériaux au sein même de
-    leur milieu. Le contraste obtenu entre formes naturelles et formes rationnelles crée l’image
-    artistique. <a href="/demo-fluo/">Variante fluo</a> — <a href="/demo-noir/">variante noire</a>.
-  </p>
+<Base classe="pt-[38px] pb-[53px]">
+  <Mosaique client:load vignettes={vignettes} />
 </Base>
