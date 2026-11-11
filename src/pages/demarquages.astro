@@ -1,0 +1,329 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Visionneuse from '../components/Visionneuse.astro';
+import affiche from '../assets/projets/demarquages/affiche-a3-et_mini.jpg';
+import carte from '../assets/projets/demarquages/geneve-bingNBfond.jpg';
+import pastille from '../assets/projets/demarquages/iconj.png';
+import tutoAnneau from '../assets/projets/demarquages/tuto-anneau.png';
+import tutoAnneauActif from '../assets/projets/demarquages/tuto-anneau-actif.png';
+import tutoCurseur from '../assets/projets/demarquages/tuto-curseur.png';
+
+const fichiersPhotos = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/projets/demarquages/photos/*.jpg',
+  { eager: true },
+);
+
+// Interventions repérées sur la carte : x et y en pixels dans l'image d'origine (724 × 605).
+const CARTE = { largeur: 724, hauteur: 605 };
+const interventions = [
+  { photo: 'subilia1', lieu: 'rue Subilia', carte: 'http://g.co/maps/q6wjm', x: 103, y: 480 },
+  {
+    photo: 'subilia2',
+    lieu: 'carrefour de la rue Subilia et de la rue des Noirettes',
+    carte: 'http://g.co/maps/pje86',
+    x: 130,
+    y: 478,
+  },
+  { photo: 'arcooptemp', lieu: 'ARCOOP', carte: 'http://g.co/maps/hvnrr', x: 205, y: 463 },
+  {
+    photo: 'gabelle-noirettestemp',
+    lieu: 'carrefour rue de la Gabelle / rue des Noirettes',
+    carte: 'http://g.co/maps/vzzdd',
+    x: 275,
+    y: 440,
+  },
+  {
+    photo: 'gabelle-noirettes2',
+    lieu: 'carrefour rue de la Gabelle / rue des Noirettes',
+    carte: 'http://g.co/maps/byp4u',
+    x: 285,
+    y: 434,
+  },
+  {
+    photo: 'acacias3temp',
+    lieu: 'parking, 76 route des Acacias',
+    carte: 'http://g.co/maps/mzxxg',
+    x: 93,
+    y: 472,
+  },
+  {
+    photo: 'acacias1',
+    lieu: 'parking, 76 route des Acacias',
+    carte: 'http://g.co/maps/mzxxg',
+    x: 94,
+    y: 462,
+  },
+  {
+    photo: 'acacias2',
+    lieu: 'parking, 76 route des Acacias',
+    carte: 'http://g.co/maps/mzxxg',
+    x: 103,
+    y: 466,
+  },
+  { photo: 'acacias4', lieu: 'route des Acacias', carte: 'http://g.co/maps/277tn', x: 103, y: 449 },
+  { photo: 'acacias5', lieu: 'route des Acacias', carte: 'http://g.co/maps/wczc3', x: 142, y: 426 },
+  {
+    photo: 'acacias6',
+    lieu: 'rond-point route des Acacias / rue de la Gabelle',
+    carte: 'http://g.co/maps/7ywga',
+    x: 193,
+    y: 409,
+  },
+  { photo: 'vernets', lieu: 'quai des Vernets', carte: 'http://g.co/maps/ed23b', x: 447, y: 300 },
+  {
+    photo: 'pontdesacacias',
+    lieu: 'pont des Acacias',
+    carte: 'http://g.co/maps/kutff',
+    x: 485,
+    y: 290,
+  },
+  {
+    photo: 'plainpalais0',
+    lieu: 'plaine de Plainpalais',
+    carte: 'http://g.co/maps/52jqh',
+    x: 520,
+    y: 170,
+  },
+  {
+    photo: 'plainpalais1',
+    lieu: 'plaine de Plainpalais',
+    carte: 'http://g.co/maps/52jqh',
+    x: 528,
+    y: 163,
+  },
+  {
+    photo: 'plainpalais2',
+    lieu: 'plaine de Plainpalais',
+    carte: 'http://g.co/maps/52jqh',
+    x: 536,
+    y: 156,
+  },
+  {
+    photo: 'plainpalais3',
+    lieu: 'plaine de Plainpalais',
+    carte: 'http://g.co/maps/9e88s',
+    x: 570,
+    y: 90,
+  },
+  {
+    photo: 'grutli',
+    lieu: 'devant le Théâtre du Grütli',
+    carte: 'http://g.co/maps/9e88s',
+    x: 530,
+    y: 20,
+  },
+];
+
+const pastilles = await Promise.all(
+  interventions.map(async (intervention) => {
+    const original =
+      fichiersPhotos[`../assets/projets/demarquages/photos/${intervention.photo}.jpg`]!.default;
+    return {
+      ...intervention,
+      grande: (await getImage({ src: original })).src,
+      largeur: original.width,
+      hauteur: original.height,
+      gauche: `${(intervention.x / CARTE.largeur) * 100}%`,
+      haut: `${(intervention.y / CARTE.hauteur) * 100}%`,
+    };
+  }),
+);
+
+const spritePastille = (await getImage({ src: pastille, format: 'png' })).src;
+---
+
+<Base
+  titre="Démarquages"
+  description="Démarquages, interventions des Insisyphes sur le marquage au sol de la voirie genevoise pour l'événement espace temporaire (Genève, 2011)."
+  classe="px-3 pt-[38px] pb-[38px] md:pr-0 md:pl-[38px]"
+>
+  <h1 class="titre">démarquages</h1>
+  <h2 class="sous-titre">espace temporaire | Genève | 2011</h2>
+
+  <p class="md:pr-10">
+    <Image
+      src={affiche}
+      alt="Affiche de l'événement espace temporaire"
+      class="float-left mr-[10px]"
+    />
+    Dix jours d’occupation de l’espace public sur le thème des « Off Spaces » avec des expositions,
+    des installations, des performances, des tables rondes, des concerts et des événements festifs
+    dans le périmètre Praille-Acacias-Vernets et Plainpalais.
+  </p>
+  <p class="md:pr-10">
+    A Genève, Les Insisyphes s’emparent des marquages aux sols. Dans leurs mains, ces signes
+    deviennent imprévisibles, fougueux ou espiègles, libérés des contraintes urbaines et
+    sémantiques.
+    <br />
+    Ces « démarquages » cheminent avec les visiteurs d’<em>espace temporaire</em> le long du
+    parcours, débordent dans des espaces improbables pour en divulguer le potentiel onirique, et
+    viennent souligner la présence des interventions artistiques.
+  </p>
+  <p class="mt-[5px] mb-[10px] md:pr-10">
+    Plus d'infos sur le site d'<em>espace temporaire</em> :{' '}
+    <a href="http://www.espacetemporaire.com" target="_blank" rel="noopener" class="font-bold">
+      www.espacetemporaire.com
+    </a>
+  </p>
+
+  <div class="relative clear-both w-[724px] max-w-full md:clear-none md:h-[705px]">
+    <p class="z-10 [text-shadow:1px_1px_1px_white] md:absolute md:top-[49px] md:left-0 md:w-[280px]">
+      Interventions contextuelles, greffées sur le marquage existant, certaines sont manifestes,
+      tandis que les autres ne se révèlent qu'aux regards attentifs. Le vocabulaire utilisé
+      s'inspire de celui existant, tant par la forme que par la couleur.
+      <br />
+      En parallèle, un <em>fil d'Ariane</em> sert de signalétique à l'événement. Telle une émanation
+      de l'oeuvre graphique créée{' '}
+      <a href="#carte" data-ouvre="grutli">
+        devant le Théâtre du Grütli
+      </a>
+      , il en reprend les codes (disques blancs de 12cm de diamètre, distants d'1,22m de centre à
+      centre) pour les adapter aux spécificités du parcours.
+    </p>
+
+    <div id="carte" class="relative" data-visionneuse>
+      <Image
+        src={carte}
+        alt="Vue aérienne de Genève, de la Praille à Plainpalais, où chaque anneau jaune repère une intervention"
+        class="h-auto w-full"
+      />
+      {pastilles.map((p) => (
+        <a
+          href={p.grande}
+          data-pswp-width={p.largeur}
+          data-pswp-height={p.hauteur}
+          data-photo={p.photo}
+          data-legende={p.lieu}
+          data-carte={p.carte}
+          title={p.lieu}
+          aria-label={`Voir la photo : ${p.lieu}`}
+          class="pastille"
+          style={`left:${p.gauche}; top:${p.haut}; background-image:url(${spritePastille})`}
+        />
+      ))}
+    </div>
+
+    <p class="z-10 pt-[10px] [text-shadow:1px_1px_1px_white] md:absolute md:top-[584px] md:left-[260px] md:w-[340px] md:pt-0">
+      Ainsi les disques sont distants de 4,88m entre les points d'intérêt, et se rapprochent (2,44m
+      puis 1,22m) à proximité des interventions des Insisyphes et des autres oeuvres d'
+      <em>espace temporaire</em>. Quant aux changements de direction et bifurcations, ils sont
+      marqués par un anneau du même tonneau.
+      <br />
+      Enfin, certaines interventions viennent se mêler au fil d'Ariane en s'emparant de son
+      vocabulaire élémentaire. C'est le cas par exemple{' '}
+      <a href="#carte" data-ouvre="plainpalais1">
+        sur la plaine de Plainpalais
+      </a>
+      ,{' '}
+      <a href="#carte" data-ouvre="plainpalais3">
+        à l'est de celle-ci
+      </a>
+      , ou encore{' '}
+      <a href="#carte" data-ouvre="acacias6">
+        au rond-point route des Acacias / rue de la Gabelle
+      </a>
+      .
+    </p>
+  </div>
+
+  <!-- Mode d'emploi animé : reprise en CSS de l'ancienne animation Flash (60 × 60, 3,75 s). -->
+  <div class="h-[70px] md:pl-[30px]">
+    <div
+      class="tuto"
+      role="img"
+      aria-label="Mode d'emploi : cliquez sur les anneaux jaunes de la carte pour voir les photos"
+      title="Mode d'emploi"
+    >
+      <Image src={tutoAnneau} alt="" class="tuto-anneau" />
+      <Image src={tutoAnneauActif} alt="" class="tuto-anneau tuto-anneau-actif" />
+      <Image src={tutoCurseur} alt="" class="tuto-curseur" />
+    </div>
+  </div>
+
+  <Visionneuse />
+</Base>
+
+<style>
+  /* Pastille de la carte : sprite 34 × 17, anneau vide puis anneau plein au survol. */
+  .pastille {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-size: 34px 17px;
+    background-position: 0 0;
+  }
+
+  .pastille:hover,
+  .pastille:focus-visible {
+    background-position: -17px 0;
+  }
+
+  .tuto {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .tuto :global(img) {
+    position: absolute;
+    max-width: none;
+  }
+
+  .tuto :global(.tuto-anneau) {
+    top: 5px;
+    left: 5px;
+  }
+
+  .tuto :global(.tuto-anneau-actif) {
+    animation: tuto-survol 3.75s step-end infinite;
+  }
+
+  .tuto :global(.tuto-curseur) {
+    top: 26px;
+    left: 32px;
+    animation: tuto-curseur 3.75s linear infinite;
+  }
+
+  /* Chronologie d'origine : 90 images à 24 i/s. Le curseur arrive (images 1 à 11),
+     l'anneau s'active (11 à 22), le curseur repart (22 à 33), puis pause. */
+  @keyframes tuto-curseur {
+    0% {
+      transform: translate(0, 0);
+    }
+    11.1%,
+    24.4% {
+      transform: translate(-19px, -13px);
+    }
+    36.7%,
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes tuto-survol {
+    0% {
+      opacity: 0;
+    }
+    11.1% {
+      opacity: 1;
+    }
+    23.3%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tuto :global(.tuto-anneau-actif),
+    .tuto :global(.tuto-curseur) {
+      animation: none;
+    }
+
+    .tuto :global(.tuto-anneau-actif) {
+      opacity: 0;
+    }
+  }
+</style>

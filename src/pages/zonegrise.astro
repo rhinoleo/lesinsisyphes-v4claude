@@ -1,0 +1,123 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Slider from '../components/Slider.vue';
+import VideoYoutube from '../components/VideoYoutube.astro';
+import Visionneuse from '../components/Visionneuse.astro';
+import bandeau from '../assets/projets/zonegrise/fond-zonegrise.gif';
+import fond from '../assets/projets/zonegrise/fond.jpg';
+import voile1 from '../assets/projets/zonegrise/fond-galerie1.png';
+import voile2 from '../assets/projets/zonegrise/fond-galerie2.png';
+import affiche from '../assets/projets/zonegrise/affiche-fdl11.jpg';
+import apercuVideo from '../assets/projets/zonegrise/video.jpg';
+import flecheGauche from '../assets/habillage/icon_arrow_left.png';
+import flecheDroite from '../assets/habillage/icon_arrow_right.png';
+
+const fichiersPhotos = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/projets/zonegrise/photos/*.jpg',
+  { eager: true },
+);
+const fichiersVignettes = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/projets/zonegrise/vignettes/*.jpg',
+  { eager: true },
+);
+
+// 16 photos numérotées img01 à img16, réparties sur deux panneaux de 8.
+const photos = await Promise.all(
+  Array.from({ length: 16 }, (_, i) => String(i + 1).padStart(2, '0')).map(async (numero) => {
+    const original = fichiersPhotos[`../assets/projets/zonegrise/photos/img${numero}.jpg`]!.default;
+    const vignette =
+      fichiersVignettes[`../assets/projets/zonegrise/vignettes/t_img${numero}.jpg`]!.default;
+    return {
+      numero,
+      grande: (await getImage({ src: original })).src,
+      largeur: original.width,
+      hauteur: original.height,
+      vignette: (await getImage({ src: vignette })).src,
+    };
+  }),
+);
+const planches = [
+  { photos: photos.slice(0, 8), voile: (await getImage({ src: voile1 })).src },
+  { photos: photos.slice(8), voile: (await getImage({ src: voile2 })).src },
+];
+
+const fondOptimise = (await getImage({ src: fond })).src;
+const voileVideo = planches[1]!.voile;
+const fleches = {
+  gauche: (await getImage({ src: flecheGauche, format: 'png' })).src,
+  droite: (await getImage({ src: flecheDroite, format: 'png' })).src,
+};
+const panneau = 'h-[469px] w-full shrink-0 snap-start';
+---
+
+<Base
+  titre="La Zone grise"
+  description="La Zone grise, installation des Insisyphes pour la Fête des Lumières 2011 : une trémie routière sous le centre d'échanges de Perrache, à Lyon, transformée en espace fictionnel."
+  variante="noir"
+  classe=""
+>
+  <h1 class="sr-only">La Zone grise</h1>
+
+  <Image src={bandeau} alt="" class="w-full pt-[37px]" />
+
+  <div class="bg-cover bg-center" style={`background-image:url(${fondOptimise})`} data-visionneuse>
+    <Slider client:load flecheGauche={fleches.gauche} flecheDroite={fleches.droite}>
+      <div data-panneau class={panneau}>
+        <p class="font-titre px-3 pt-[350px] text-[1.1em] leading-[1.5] tracking-[0.08em] text-[#eee] md:pr-[200px] md:pl-[45px]">
+          C'est au niveau du centre d'échanges, entre Carnot et Charlemagne. Depuis quelques jours
+          ça sonne pas pareil. La lumière, aussi : on dirait qu'elle a changé. Ou alors c'est la
+          couleur ? Et il y a tous ces signes sur les murs, le sol... Qu'est-ce qu'il se passe par
+          là-bas ?
+        </p>
+      </div>
+
+      {planches.map((planche) => (
+        <div data-panneau class={panneau} style={`background-image:url(${planche.voile})`}>
+          <ul class="mx-auto grid w-[376px] max-w-full grid-cols-4 gap-x-10 gap-y-[45px] pt-[241px]">
+            {planche.photos.map((photo) => (
+              <li class="hover:border-fluo focus-within:border-fluo border-2 border-[#333]">
+                <a
+                  href={photo.grande}
+                  data-pswp-width={photo.largeur}
+                  data-pswp-height={photo.hauteur}
+                  aria-label={`Agrandir la photo ${Number(photo.numero)}`}
+                  class="block"
+                >
+                  <img src={photo.vignette} width="60" height="60" alt="" loading="lazy" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div data-panneau class={panneau} style={`background-image:url(${voileVideo})`}>
+        <VideoYoutube
+          id="HFds-MnYMg4"
+          titre="La Zone grise"
+          apercu={apercuVideo}
+          largeur={560}
+          hauteur={315}
+          class="mx-auto mt-[110px] md:mr-0 md:ml-[123px]"
+        />
+      </div>
+    </Slider>
+  </div>
+
+  <div class="flow-root px-3 pt-[38px] pb-[30px] text-[#888] md:pl-[37px]">
+    <Image src={affiche} alt="Affiche de la Fête des Lumières 2011" class="float-left mr-[10px]" />
+    <h2 class="titre pb-0">fête des lumières</h2>
+    <p class="sous-titre mb-[10px]">
+      trémie sous le centre d'échanges de Perrache - du 8 au 12 décembre 2011
+    </p>
+    <p class="pt-[160px]">
+      Plus d'infos sur le site de la Fête des Lumières :{' '}
+      <a href="http://www.fetedeslumieres.lyon.fr" target="_blank" rel="noopener" class="font-bold">
+        www.fetedeslumieres.lyon.fr
+      </a>
+    </p>
+  </div>
+
+  <Visionneuse />
+</Base>

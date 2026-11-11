@@ -1,0 +1,103 @@
+---
+// Visionneuse plein écran (PhotoSwipe, remplace prettyPhoto). À inclure une fois par page.
+//
+// Usage dans la page :
+// - un conteneur avec l'attribut data-visionneuse ;
+// - dedans, des liens <a href="grande-image" data-pswp-width data-pswp-height> ;
+//   data-legende (texte) et data-carte (adresse Google Maps) ajoutent une légende ;
+// - tout élément portant data-ouvre="nom" ouvre la photo dont le lien porte data-photo="nom".
+---
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const visionneuse = new PhotoSwipeLightbox({
+    gallery: '[data-visionneuse]',
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('photoswipe'),
+    bgOpacity: 0.85,
+    closeTitle: 'Fermer',
+    zoomTitle: 'Zoomer',
+    arrowPrevTitle: 'Photo précédente',
+    arrowNextTitle: 'Photo suivante',
+    errorMsg: 'La photo ne peut pas être affichée.',
+  });
+
+  // Ouverture : au lieu d'agrandir la vignette (floue une fois étirée), un cadre jaune fluo
+  // part de la vignette et grandit jusqu'à la taille de la photo, qui s'affiche ensuite dedans.
+  // Le cadre ne sert qu'à la première photo ; les suivantes gardent le fond neutre par défaut.
+  visionneuse.addFilter('placeholderSrc', () => false);
+  visionneuse.on('openingAnimationStart', () => {
+    const pswp = visionneuse.pswp!;
+    pswp.element?.classList.add('pswp--ouverture');
+    const photoOuverte = pswp.currIndex;
+    pswp.on('change', () => {
+      if (pswp.currIndex !== photoOuverte) pswp.element?.classList.remove('pswp--ouverture');
+    });
+  });
+
+  visionneuse.on('uiRegister', () => {
+    const pswp = visionneuse.pswp!;
+    pswp.ui?.registerElement({
+      name: 'legende',
+      order: 9,
+      isButton: false,
+      appendTo: 'root',
+      onInit: (zone) => {
+        pswp.on('change', () => {
+          const lien = pswp.currSlide?.data.element;
+          const texte = lien?.dataset.legende;
+          zone.replaceChildren();
+          zone.hidden = !texte;
+          if (!texte) return;
+          zone.append(texte);
+          if (lien.dataset.carte) {
+            const carte = document.createElement('a');
+            carte.href = lien.dataset.carte;
+            carte.target = '_blank';
+            carte.rel = 'noopener';
+            carte.textContent = '(localiser sur Google Maps)';
+            zone.append(' ', carte);
+          }
+        });
+      },
+    });
+  });
+
+  visionneuse.init();
+
+  document.querySelectorAll<HTMLElement>('[data-ouvre]').forEach((declencheur) => {
+    declencheur.addEventListener('click', (evenement) => {
+      evenement.preventDefault();
+      document.querySelector<HTMLElement>(`[data-photo="${declencheur.dataset.ouvre}"]`)?.click();
+    });
+  });
+</script>
+
+<style is:global>
+  .pswp__legende {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    max-width: calc(100% - 32px);
+    transform: translateX(-50%);
+    border-radius: 3px;
+    background: rgb(0 0 0 / 0.75);
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .pswp--ouverture div.pswp__img--placeholder {
+    background: var(--color-fluo);
+    /* Rogné de 2 px par côté : les arrondis de taille ne le font jamais dépasser de la photo. */
+    clip-path: inset(2px);
+  }
+
+  .pswp__legende a {
+    color: var(--color-fluo);
+  }
+</style>
