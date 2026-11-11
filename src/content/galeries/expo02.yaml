@@ -1,0 +1,31 @@
+titre: "expo#02"
+intitule: "expo#02"
+retour: "/realisations/"
+fond: ../../assets/galeries/expo02/fond.jpg
+photos:
+  - image: ../../assets/galeries/expo02/01.jpg
+    vignette: ../../assets/galeries/expo02/01tn.jpg
+    titre: "Lyon, juillet 2008\nrue Jean Jullien"
+    description: "Cette deuxième expo s'est déroulée du 4 au 6 juillet, dans la cage d'escalier d'un immeuble croix-roussien."
+  - image: ../../assets/galeries/expo02/02.jpg
+    vignette: ../../assets/galeries/expo02/02tn.jpg
+  - image: ../../assets/galeries/expo02/03.jpg
+    vignette: ../../assets/galeries/expo02/03tn.jpg
+  - image: ../../assets/galeries/expo02/04.jpg
+    vignette: ../../assets/galeries/expo02/04tn.jpg
+  - image: ../../assets/galeries/expo02/05.jpg
+    vignette: ../../assets/galeries/expo02/05tn.jpg
+  - image: ../../assets/galeries/expo02/06.jpg
+    vignette: ../../assets/galeries/expo02/06tn.jpg
+  - image: ../../assets/galeries/expo02/07.jpg
+    vignette: ../../assets/galeries/expo02/07tn.jpg
+  - image: ../../assets/galeries/expo02/08.jpg
+    vignette: ../../assets/galeries/expo02/08tn.jpg
+  - image: ../../assets/galeries/expo02/09.jpg
+    vignette: ../../assets/galeries/expo02/09tn.jpg
+  - image: ../../assets/galeries/expo02/10.jpg
+    vignette: ../../assets/galeries/expo02/10tn.jpg
+  - image: ../../assets/galeries/expo02/11.jpg
+    vignette: ../../assets/galeries/expo02/11tn.jpg
+  - image: ../../assets/galeries/expo02/12.jpg
+    vignette: ../../assets/galeries/expo02/12tn.jpg

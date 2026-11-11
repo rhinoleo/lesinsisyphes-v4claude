@@ -1,0 +1,56 @@
+titre: "Le Sanatorium - pendant la fête"
+intitule: "l'installation pendant la fête"
+fil:
+  - titre: "Réalisations"
+    href: "/realisations/"
+  - titre: "Le Sanatorium"
+    href: "/sanatorium/"
+retour: "/sanatorium/"
+fond: ../../assets/galeries/sanatorium-fete/fond.jpg
+photos:
+  - image: ../../assets/galeries/sanatorium-fete/01.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/01tn.jpg
+    titre: "Lyon, décembre 2010"
+    description: "Durant la fête, place Raspail."
+  - image: ../../assets/galeries/sanatorium-fete/02.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/02tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/03.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/03tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/04.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/04tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/05.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/05tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/06.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/06tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/07.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/07tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/08.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/08tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/09.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/09tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/10.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/10tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/11.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/11tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/12.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/12tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/13.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/13tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/14.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/14tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/15.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/15tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/16.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/16tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/17.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/17tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/18.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/18tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/19.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/19tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/20.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/20tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/21.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/21tn.jpg
+  - image: ../../assets/galeries/sanatorium-fete/22.jpg
+    vignette: ../../assets/galeries/sanatorium-fete/22tn.jpg

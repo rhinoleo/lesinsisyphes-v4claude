@@ -1,0 +1,35 @@
+titre: "expo#01"
+intitule: "expo#01 - Fuites Industrielles"
+retour: "/realisations/"
+fond: ../../assets/galeries/expo01/fond.jpg
+photos:
+  - image: ../../assets/galeries/expo01/01.jpg
+    vignette: ../../assets/galeries/expo01/01tn.jpg
+    titre: "Lyon, juin 2008"
+    description: "Organisé peu avant la création de l'association Les Insisyphes, cet événement fut une première expérience d'exposition en cours, étalée sur deux jours."
+  - image: ../../assets/galeries/expo01/02.jpg
+    vignette: ../../assets/galeries/expo01/02tn.jpg
+  - image: ../../assets/galeries/expo01/03.jpg
+    vignette: ../../assets/galeries/expo01/03tn.jpg
+  - image: ../../assets/galeries/expo01/04.jpg
+    vignette: ../../assets/galeries/expo01/04tn.jpg
+  - image: ../../assets/galeries/expo01/05.jpg
+    vignette: ../../assets/galeries/expo01/05tn.jpg
+  - image: ../../assets/galeries/expo01/06.jpg
+    vignette: ../../assets/galeries/expo01/06tn.jpg
+  - image: ../../assets/galeries/expo01/07.jpg
+    vignette: ../../assets/galeries/expo01/07tn.jpg
+  - image: ../../assets/galeries/expo01/08.jpg
+    vignette: ../../assets/galeries/expo01/08tn.jpg
+  - image: ../../assets/galeries/expo01/09.jpg
+    vignette: ../../assets/galeries/expo01/09tn.jpg
+  - image: ../../assets/galeries/expo01/10.jpg
+    vignette: ../../assets/galeries/expo01/10tn.jpg
+  - image: ../../assets/galeries/expo01/11.jpg
+    vignette: ../../assets/galeries/expo01/11tn.jpg
+  - image: ../../assets/galeries/expo01/12.jpg
+    vignette: ../../assets/galeries/expo01/12tn.jpg
+  - image: ../../assets/galeries/expo01/13.jpg
+    vignette: ../../assets/galeries/expo01/13tn.jpg
+  - image: ../../assets/galeries/expo01/14.jpg
+    vignette: ../../assets/galeries/expo01/14tn.jpg

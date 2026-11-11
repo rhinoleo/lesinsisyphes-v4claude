@@ -1,0 +1,51 @@
+titre: "expo#03"
+intitule: "expo#03"
+retour: "/realisations/"
+fond: ../../assets/galeries/expo03/fond.jpg
+photos:
+  - image: ../../assets/galeries/expo03/01.jpg
+    vignette: ../../assets/galeries/expo03/01tn.jpg
+    titre: "Lyon, juin 2009\nrue Pierre Blanc"
+    description: "L'expo a débuté le 19 juin, à l'occasion de la fête des voisins de cette cour d'immeubles, et s'est prolongée jusqu'au 21 juin, entre pluie et soleil."
+  - image: ../../assets/galeries/expo03/02.jpg
+    vignette: ../../assets/galeries/expo03/02tn.jpg
+  - image: ../../assets/galeries/expo03/03.jpg
+    vignette: ../../assets/galeries/expo03/03tn.jpg
+  - image: ../../assets/galeries/expo03/04.jpg
+    vignette: ../../assets/galeries/expo03/04tn.jpg
+    titre: "Natacha Liébaux"
+    description: "Le travail de Natacha trouve son origine dans l'observation du sol de la cours. Des éléments singuliers puisés dans ce micro univers deviennent ainsi les motifs d'une composition graphique."
+  - image: ../../assets/galeries/expo03/05.jpg
+    vignette: ../../assets/galeries/expo03/05tn.jpg
+  - image: ../../assets/galeries/expo03/06.jpg
+    vignette: ../../assets/galeries/expo03/06tn.jpg
+  - image: ../../assets/galeries/expo03/07.jpg
+    vignette: ../../assets/galeries/expo03/07tn.jpg
+  - image: ../../assets/galeries/expo03/08.jpg
+    vignette: ../../assets/galeries/expo03/08tn.jpg
+  - image: ../../assets/galeries/expo03/09.jpg
+    vignette: ../../assets/galeries/expo03/09tn.jpg
+  - image: ../../assets/galeries/expo03/10.jpg
+    vignette: ../../assets/galeries/expo03/10tn.jpg
+  - image: ../../assets/galeries/expo03/11.jpg
+    vignette: ../../assets/galeries/expo03/11tn.jpg
+  - image: ../../assets/galeries/expo03/12.jpg
+    vignette: ../../assets/galeries/expo03/12tn.jpg
+  - image: ../../assets/galeries/expo03/13.jpg
+    vignette: ../../assets/galeries/expo03/13tn.jpg
+  - image: ../../assets/galeries/expo03/14.jpg
+    vignette: ../../assets/galeries/expo03/14tn.jpg
+  - image: ../../assets/galeries/expo03/15.jpg
+    vignette: ../../assets/galeries/expo03/15tn.jpg
+  - image: ../../assets/galeries/expo03/16.jpg
+    vignette: ../../assets/galeries/expo03/16tn.jpg
+  - image: ../../assets/galeries/expo03/17.jpg
+    vignette: ../../assets/galeries/expo03/17tn.jpg
+  - image: ../../assets/galeries/expo03/18.jpg
+    vignette: ../../assets/galeries/expo03/18tn.jpg
+  - image: ../../assets/galeries/expo03/19.jpg
+    vignette: ../../assets/galeries/expo03/19tn.jpg
+  - image: ../../assets/galeries/expo03/20.jpg
+    vignette: ../../assets/galeries/expo03/20tn.jpg
+  - image: ../../assets/galeries/expo03/21.jpg
+    vignette: ../../assets/galeries/expo03/21tn.jpg

@@ -1,0 +1,61 @@
+titre: "expo#04"
+intitule: "expo#04"
+retour: "/realisations/"
+fond: ../../assets/galeries/expo04/fond.gif
+photos:
+  - image: ../../assets/galeries/expo04/01.jpg
+    vignette: ../../assets/galeries/expo04/01tn.jpg
+    titre: "Lyon, octobre 2009\ngde rue de la Croix-Rousse"
+    description: "L'expo s'est tenue le week-end des 10 et 11 octobre 2009. Pour l'occasion nous avons travaillé avec l'association I2A, qui partage la même démarche."
+  - image: ../../assets/galeries/expo04/02.jpg
+    vignette: ../../assets/galeries/expo04/02tn.jpg
+  - image: ../../assets/galeries/expo04/03.jpg
+    vignette: ../../assets/galeries/expo04/03tn.jpg
+  - image: ../../assets/galeries/expo04/04.jpg
+    vignette: ../../assets/galeries/expo04/04tn.jpg
+  - image: ../../assets/galeries/expo04/05.jpg
+    vignette: ../../assets/galeries/expo04/05tn.jpg
+  - image: ../../assets/galeries/expo04/06.jpg
+    vignette: ../../assets/galeries/expo04/06tn.jpg
+  - image: ../../assets/galeries/expo04/07.jpg
+    vignette: ../../assets/galeries/expo04/07tn.jpg
+  - image: ../../assets/galeries/expo04/08.jpg
+    vignette: ../../assets/galeries/expo04/08tn.jpg
+  - image: ../../assets/galeries/expo04/09.jpg
+    vignette: ../../assets/galeries/expo04/09tn.jpg
+  - image: ../../assets/galeries/expo04/10.jpg
+    vignette: ../../assets/galeries/expo04/10tn.jpg
+  - image: ../../assets/galeries/expo04/11.jpg
+    vignette: ../../assets/galeries/expo04/11tn.jpg
+  - image: ../../assets/galeries/expo04/12.jpg
+    vignette: ../../assets/galeries/expo04/12tn.jpg
+  - image: ../../assets/galeries/expo04/13.jpg
+    vignette: ../../assets/galeries/expo04/13tn.jpg
+  - image: ../../assets/galeries/expo04/14.jpg
+    vignette: ../../assets/galeries/expo04/14tn.jpg
+  - image: ../../assets/galeries/expo04/15.jpg
+    vignette: ../../assets/galeries/expo04/15tn.jpg
+  - image: ../../assets/galeries/expo04/16.jpg
+    vignette: ../../assets/galeries/expo04/16tn.jpg
+  - image: ../../assets/galeries/expo04/17.jpg
+    vignette: ../../assets/galeries/expo04/17tn.jpg
+  - image: ../../assets/galeries/expo04/18.jpg
+    vignette: ../../assets/galeries/expo04/18tn.jpg
+  - image: ../../assets/galeries/expo04/19.jpg
+    vignette: ../../assets/galeries/expo04/19tn.jpg
+  - image: ../../assets/galeries/expo04/20.jpg
+    vignette: ../../assets/galeries/expo04/20tn.jpg
+  - image: ../../assets/galeries/expo04/21.jpg
+    vignette: ../../assets/galeries/expo04/21tn.jpg
+  - image: ../../assets/galeries/expo04/22.jpg
+    vignette: ../../assets/galeries/expo04/22tn.jpg
+  - image: ../../assets/galeries/expo04/23.jpg
+    vignette: ../../assets/galeries/expo04/23tn.jpg
+  - image: ../../assets/galeries/expo04/24.jpg
+    vignette: ../../assets/galeries/expo04/24tn.jpg
+  - image: ../../assets/galeries/expo04/25.jpg
+    vignette: ../../assets/galeries/expo04/25tn.jpg
+  - image: ../../assets/galeries/expo04/26.jpg
+    vignette: ../../assets/galeries/expo04/26tn.jpg
+  - image: ../../assets/galeries/expo04/27.jpg
+    vignette: ../../assets/galeries/expo04/27tn.jpg

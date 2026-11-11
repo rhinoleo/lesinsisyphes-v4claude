@@ -28,4 +28,33 @@ const projets = defineCollection({
     }),
 });
 
-export const collections = { projets };
+// Galeries photo : un fichier YAML par galerie dans src/content/galeries/.
+// Le nom du fichier donne l'adresse de la page (expo01.yaml → /expo01/).
+const galeries = defineCollection({
+  loader: glob({ pattern: '*.yaml', base: './src/content/galeries' }),
+  schema: ({ image }) =>
+    z.object({
+      /** Titre de l'onglet du navigateur. */
+      titre: z.string(),
+      /** Intitulé affiché en haut de la galerie. */
+      intitule: z.string(),
+      /** Fil d'Ariane optionnel affiché avant l'intitulé. */
+      fil: z.array(z.object({ titre: z.string(), href: z.string() })).default([]),
+      /** Adresse du lien « < retour ». */
+      retour: z.string(),
+      /** Image de fond, calée en bas du cadre. */
+      fond: image(),
+      photos: z.array(
+        z.object({
+          image: image(),
+          /** Vignette recadrée à la main (50 × 50) ; à défaut, recadrage automatique au centre. */
+          vignette: image().optional(),
+          /** Légende : titre et texte, tous deux optionnels (retours à la ligne conservés). */
+          titre: z.string().optional(),
+          description: z.string().optional(),
+        }),
+      ),
+    }),
+});
+
+export const collections = { projets, galeries };

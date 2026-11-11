@@ -1,0 +1,26 @@
+titre: "Le Sanatorium - montage"
+intitule: "montage"
+fil:
+  - titre: "Réalisations"
+    href: "/realisations/"
+  - titre: "Le Sanatorium"
+    href: "/sanatorium/"
+retour: "/sanatorium/"
+fond: ../../assets/galeries/sanatorium-montage/fond.jpg
+photos:
+  - image: ../../assets/galeries/sanatorium-montage/01.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/01tn.jpg
+    titre: "Lyon, automne 2010"
+    description: "Préparatifs, construction et pré-montage de la structure en atelier. Montage sur site, place Raspail."
+  - image: ../../assets/galeries/sanatorium-montage/02.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/02tn.jpg
+  - image: ../../assets/galeries/sanatorium-montage/03.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/03tn.jpg
+  - image: ../../assets/galeries/sanatorium-montage/04.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/04tn.jpg
+  - image: ../../assets/galeries/sanatorium-montage/05.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/05tn.jpg
+  - image: ../../assets/galeries/sanatorium-montage/06.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/06tn.jpg
+  - image: ../../assets/galeries/sanatorium-montage/07.jpg
+    vignette: ../../assets/galeries/sanatorium-montage/07tn.jpg
