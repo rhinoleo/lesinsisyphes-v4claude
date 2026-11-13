@@ -70,6 +70,12 @@
   }
 }
 
+/* Badge « Powered by Netlify » injecté par l'hébergeur sur le plan gratuit
+   (cadre #nl-badge-frame ajouté en fin de page) : masqué, faute de réglage pour le désactiver. */
+#nl-badge-frame {
+  display: none !important;
+}
+
 /* Respect du réglage système « réduire les animations ». */
 @media (prefers-reduced-motion: reduce) {
   *,
