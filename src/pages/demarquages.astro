@@ -17,99 +17,86 @@ const fichiersPhotos = import.meta.glob<{ default: ImageMetadata }>(
 // Interventions repérées sur la carte : x et y en pixels dans l'image d'origine (724 × 605).
 const CARTE = { largeur: 724, hauteur: 605 };
 const interventions = [
-  { photo: 'subilia1', lieu: 'rue Subilia', carte: 'http://g.co/maps/q6wjm', x: 103, y: 480 },
+  { photo: 'subilia1', lieu: 'rue Subilia', x: 103, y: 480 },
   {
     photo: 'subilia2',
     lieu: 'carrefour de la rue Subilia et de la rue des Noirettes',
-    carte: 'http://g.co/maps/pje86',
     x: 130,
     y: 478,
   },
-  { photo: 'arcooptemp', lieu: 'ARCOOP', carte: 'http://g.co/maps/hvnrr', x: 205, y: 463 },
+  { photo: 'arcooptemp', lieu: 'ARCOOP', x: 205, y: 463 },
   {
     photo: 'gabelle-noirettestemp',
     lieu: 'carrefour rue de la Gabelle / rue des Noirettes',
-    carte: 'http://g.co/maps/vzzdd',
     x: 275,
     y: 440,
   },
   {
     photo: 'gabelle-noirettes2',
     lieu: 'carrefour rue de la Gabelle / rue des Noirettes',
-    carte: 'http://g.co/maps/byp4u',
     x: 285,
     y: 434,
   },
   {
     photo: 'acacias3temp',
     lieu: 'parking, 76 route des Acacias',
-    carte: 'http://g.co/maps/mzxxg',
     x: 93,
     y: 472,
   },
   {
     photo: 'acacias1',
     lieu: 'parking, 76 route des Acacias',
-    carte: 'http://g.co/maps/mzxxg',
     x: 94,
     y: 462,
   },
   {
     photo: 'acacias2',
     lieu: 'parking, 76 route des Acacias',
-    carte: 'http://g.co/maps/mzxxg',
     x: 103,
     y: 466,
   },
-  { photo: 'acacias4', lieu: 'route des Acacias', carte: 'http://g.co/maps/277tn', x: 103, y: 449 },
-  { photo: 'acacias5', lieu: 'route des Acacias', carte: 'http://g.co/maps/wczc3', x: 142, y: 426 },
+  { photo: 'acacias4', lieu: 'route des Acacias', x: 103, y: 449 },
+  { photo: 'acacias5', lieu: 'route des Acacias', x: 142, y: 426 },
   {
     photo: 'acacias6',
     lieu: 'rond-point route des Acacias / rue de la Gabelle',
-    carte: 'http://g.co/maps/7ywga',
     x: 193,
     y: 409,
   },
-  { photo: 'vernets', lieu: 'quai des Vernets', carte: 'http://g.co/maps/ed23b', x: 447, y: 300 },
+  { photo: 'vernets', lieu: 'quai des Vernets', x: 447, y: 300 },
   {
     photo: 'pontdesacacias',
     lieu: 'pont des Acacias',
-    carte: 'http://g.co/maps/kutff',
     x: 485,
     y: 290,
   },
   {
     photo: 'plainpalais0',
     lieu: 'plaine de Plainpalais',
-    carte: 'http://g.co/maps/52jqh',
     x: 520,
     y: 170,
   },
   {
     photo: 'plainpalais1',
     lieu: 'plaine de Plainpalais',
-    carte: 'http://g.co/maps/52jqh',
     x: 528,
     y: 163,
   },
   {
     photo: 'plainpalais2',
     lieu: 'plaine de Plainpalais',
-    carte: 'http://g.co/maps/52jqh',
     x: 536,
     y: 156,
   },
   {
     photo: 'plainpalais3',
     lieu: 'plaine de Plainpalais',
-    carte: 'http://g.co/maps/9e88s',
     x: 570,
     y: 90,
   },
   {
     photo: 'grutli',
     lieu: 'devant le Théâtre du Grütli',
-    carte: 'http://g.co/maps/9e88s',
     x: 530,
     y: 20,
   },
@@ -135,6 +122,7 @@ const spritePastille = (await getImage({ src: pastille, format: 'png' })).src;
 
 <Base
   titre="Démarquages"
+  imagePartage={carte}
   description="Démarquages, interventions des Insisyphes sur le marquage au sol de la voirie genevoise pour l'événement espace temporaire (Genève, 2011)."
   classe="px-3 pt-[38px] pb-[38px] md:pr-0 md:pl-[38px]"
 >
@@ -195,7 +183,6 @@ const spritePastille = (await getImage({ src: pastille, format: 'png' })).src;
           data-pswp-height={p.hauteur}
           data-photo={p.photo}
           data-legende={p.lieu}
-          data-carte={p.carte}
           title={p.lieu}
           aria-label={`Voir la photo : ${p.lieu}`}
           class="pastille"

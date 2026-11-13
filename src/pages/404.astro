@@ -1,0 +1,24 @@
+---
+// Page affichée quand une adresse n'existe pas.
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  titre="Page introuvable"
+  description="Cette page n'existe pas ou a été déplacée."
+  classe="px-3 pt-[38px] pb-[53px] md:pr-[33px] md:pl-[38px]"
+  horsIndex
+>
+  <h1 class="titre">page introuvable</h1>
+  <h2 class="sous-titre">erreur 404</h2>
+  <p>
+    Cette page n'existe pas, ou elle a changé d'adresse. À force de pousser le rocher, il a dû
+    rouler ailleurs.
+  </p>
+  <p class="font-bold">
+    <a href="/">&gt; revenir à l'accueil</a>
+  </p>
+  <p class="font-bold">
+    <a href="/realisations/">&gt; voir les réalisations</a>
+  </p>
+</Base>

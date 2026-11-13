@@ -14,7 +14,7 @@ onMounted(() => {
 });
 
 const lienMenu =
-  'inline-block bg-black px-[6px] pt-px text-[0.72rem] leading-[13px] text-white uppercase hover:text-fluo hover:no-underline cursor-pointer';
+  'inline-block bg-black px-[6px] py-[6px] md:pt-px md:pb-0 text-[0.72rem] leading-[13px] text-white uppercase hover:text-fluo hover:no-underline cursor-pointer';
 </script>
 
 <template>

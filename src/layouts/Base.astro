@@ -1,7 +1,7 @@
 ---
-// Gabarit commun à toutes les pages : logo, en-tête, cadre de page.
+// Gabarit commun à toutes les pages : métadonnées, logo, en-tête, cadre de page.
 import '../styles/global.css';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import logo from '../assets/habillage/entete.png';
 import EnTete from '../components/EnTete.vue';
 
@@ -13,6 +13,10 @@ interface Props {
   variante?: 'clair' | 'fluo' | 'noir';
   /** Classes du cadre ; par défaut les marges intérieures d'origine. */
   classe?: string;
+  /** Image affichée quand la page est partagée (réseaux sociaux, messageries). */
+  imagePartage?: ImageMetadata;
+  /** Page à ne pas référencer (page d'erreur). */
+  horsIndex?: boolean;
 }
 
 const {
@@ -20,9 +24,16 @@ const {
   description = 'Les Insisyphes, des aires pour les arts : expositions éphémères et interventions artistiques dans l’espace public, à Lyon et ailleurs.',
   variante = 'clair',
   classe = 'pt-[38px] pr-[33px] pb-[53px]',
+  imagePartage,
+  horsIndex = false,
 } = Astro.props;
 
 const titreComplet = titre ? `Les Insisyphes - ${titre}` : 'Les Insisyphes';
+const adresse = new URL(Astro.url.pathname, Astro.site);
+const partage = imagePartage
+  ? (await getImage({ src: imagePartage, format: 'jpg' })).src
+  : '/logo-partage.jpg';
+const adressePartage = new URL(partage, Astro.site);
 ---
 
 <!doctype html>
@@ -32,9 +43,26 @@ const titreComplet = titre ? `Les Insisyphes - ${titre}` : 'Les Insisyphes';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titreComplet}</title>
     <meta name="description" content={description} />
+    {horsIndex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={adresse} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Les Insisyphes" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={titreComplet} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={adresse} />
+    <meta property="og:image" content={adressePartage} />
+    <meta name="twitter:card" content={imagePartage ? 'summary_large_image' : 'summary'} />
   </head>
   <body>
+    <a
+      href="#contenu"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-black focus:px-3 focus:py-2 focus:text-white"
+    >
+      Aller au contenu
+    </a>
     <div class="max-w-cadre relative mx-auto mb-10 box-content px-3 pt-5 md:mb-[200px] md:px-[27px]">
       <a
         href="/"
@@ -42,14 +70,14 @@ const titreComplet = titre ? `Les Insisyphes - ${titre}` : 'Les Insisyphes';
       >
         <Image
           src={logo}
-          alt="Les Insisyphes, des aires pour les arts…"
+          alt="Les Insisyphes, des aires pour les arts… (retour à l'accueil)"
           width={292}
           height={225}
           loading="eager"
         />
       </a>
       <EnTete client:load />
-      <main class:list={['cadre', `cadre-${variante}`, classe]}>
+      <main id="contenu" class:list={['cadre', `cadre-${variante}`, classe]}>
         <slot />
       </main>
     </div>

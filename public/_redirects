@@ -1,0 +1,17 @@
+# Redirections permanentes des adresses de l'ancien site (pages .php) vers les nouvelles.
+# Format reconnu par Cloudflare Pages et Netlify : ancienne adresse, nouvelle adresse, code.
+/index.php               /                      301
+/realisations.php        /realisations/         301
+/propositions.php        /propositions/         301
+/gyre.php                /gyre/                 301
+/mirage.php              /mirage/               301
+/rivieresouterraine.php  /rivieresouterraine/   301
+/zonegrise.php           /zonegrise/            301
+/demarquages.php         /demarquages/          301
+/sanatorium.php          /sanatorium/           301
+/sanatorium-montage.php  /sanatorium-montage/   301
+/sanatorium-fete.php     /sanatorium-fete/      301
+/expo01.php              /expo01/               301
+/expo02.php              /expo02/               301
+/expo03.php              /expo03/               301
+/expo04.php              /expo04/               301

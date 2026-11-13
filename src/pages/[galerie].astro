@@ -37,6 +37,7 @@ const photosPretes: Photo[] = await Promise.all(
 
 <Base
   titre={titre}
+  imagePartage={photos[0]?.image}
   description={`${titre} : galerie de ${photos.length} photos des Insisyphes.`}
   variante="noir"
   classe="px-[3px]"

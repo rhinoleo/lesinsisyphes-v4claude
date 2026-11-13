@@ -4,7 +4,7 @@
 // Usage dans la page :
 // - un conteneur avec l'attribut data-visionneuse ;
 // - dedans, des liens <a href="grande-image" data-pswp-width data-pswp-height> ;
-//   data-legende (texte) et data-carte (adresse Google Maps) ajoutent une légende ;
+//   data-legende (texte) ajoute une légende sous la photo ;
 // - tout élément portant data-ouvre="nom" ouvre la photo dont le lien porte data-photo="nom".
 ---
 
@@ -50,16 +50,7 @@
           const texte = lien?.dataset.legende;
           zone.replaceChildren();
           zone.hidden = !texte;
-          if (!texte) return;
-          zone.append(texte);
-          if (lien.dataset.carte) {
-            const carte = document.createElement('a');
-            carte.href = lien.dataset.carte;
-            carte.target = '_blank';
-            carte.rel = 'noopener';
-            carte.textContent = '(localiser sur Google Maps)';
-            zone.append(' ', carte);
-          }
+          if (texte) zone.append(texte);
         });
       },
     });
@@ -95,9 +86,5 @@
     background: var(--color-fluo);
     /* Rogné de 2 px par côté : les arrondis de taille ne le font jamais dépasser de la photo. */
     clip-path: inset(2px);
-  }
-
-  .pswp__legende a {
-    color: var(--color-fluo);
   }
 </style>
